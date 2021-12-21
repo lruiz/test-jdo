@@ -1,0 +1,32 @@
+<jdo>
+    <package name="mydomain.model">
+        <class name="Network" identity-type="datastore" table="networks">
+            <field name="devices" persistence-modifier="persistent" table="network_devices">
+                <collection element-type="mydomain.model.Device"/>
+                <join>
+                    <primary-key name="network_device_pk">
+                        <column name="network_id"/>
+                        <column name="device_ip_address"/>
+                    </primary-key>
+                    <column name="network_id"/>
+                </join>
+                <element>
+                    <embedded>
+                        <field name="name">
+                            <column name="device_name" allows-null="true"/>
+                        </field>
+                        <field name="ipAddress">
+                            <column name="device_ip_address" allows-null="true"/>
+                        </field>
+                    </embedded>
+                </element>
+            </field>
+        </class>
+        <class name="Device" embedded-only="true">
+            <field name="name">
+            </field>
+            <field name="ipAddress">
+            </field>
+        </class>
+    </package>
+</jdo>

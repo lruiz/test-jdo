@@ -6,8 +6,8 @@
 
     <persistence-unit name="MyTest">
         <!-- Add all of your model classes here -->
-        <class>mydomain.model.Person</class>
-        <exclude-unlisted-classes />
+        <mapping-file>META-INF/package.jdo</mapping-file>
+        <exclude-unlisted-classes/>
         <properties>
             <!-- Update these datastore details if different -->
             <property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
@@ -18,6 +18,7 @@
 
             <property name="datanucleus.schema.autoCreateAll" value="true"/>
             <property name="datanucleus.schema.generateDatabase.mode" value="drop-and-create"/>
+            <property name="datanucleus.identifier.case" value="UPPERCASE"/>
         </properties>
     </persistence-unit>
 

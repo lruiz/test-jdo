@@ -22,7 +22,9 @@ public class SimpleTest
         {
             tx.begin();
 
-            // [INSERT code here to persist object required for testing]
+            Network network = new Network("MyNET");
+            network.addDevice(new Device("RouterX", "10.0.0.21"));
+            pm.makePersistent(network);
 
             tx.commit();
         }
